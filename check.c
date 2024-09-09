@@ -44,13 +44,15 @@ int is_unique_node(t_stack **stack_a)
 int stack_len(t_stack **stack)
 {
     int len;
+    t_stack *current;
 
     len = 0;
 	if (!stack)
 		return (0);
-	while ((*stack) != NULL)
+    current = *stack;
+	while (current != NULL)
     {
-		*stack = (*stack)->next;
+		current = current->next;
         len++;
     }
 	return (len);

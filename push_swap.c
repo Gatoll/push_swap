@@ -113,8 +113,6 @@ void push_swap(t_stack **stack_a, t_stack **stack_b)
 {
     int len;
 
-    if (is_sorted(stack_a) == TRUE)
-        return ;
     len = stack_len(stack_a);
     if (len == 2)
         sa(stack_a);
