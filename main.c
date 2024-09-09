@@ -9,11 +9,13 @@ int init_stack(int argc, char *argv[], t_stack **stack_a)
 {
     if (arg_to_stack(argc, argv, stack_a) == FALSE)
         return (FALSE);
-    if (is_unique_node(stack_a) == FALSE || is_sorted(stack_a) == TRUE)
+    if (is_unique_node(stack_a) == FALSE)
     {
         free_stack(stack_a);
         return (FALSE);
     }
+    if (is_sorted(stack_a) == TRUE)
+        return (FALSE);
     return (TRUE);
 }
 
@@ -29,10 +31,7 @@ int main(int argc, char *argv[])
     if (argc == 1)
         return (1);
     if (init_stack(argc, argv, &stack_a) == FALSE)
-    {
-        put_error();
         return (1);
-    };
 
     t_stack *current;
     current = stack_a;

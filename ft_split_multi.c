@@ -73,8 +73,9 @@ char	**ft_split_multi(char const *s, char *c)
 	char	**res;
 	int		i;
 
-	if (!s)
+	if (!s || *s == '\0')
 		return (NULL);
+		
 	res = (char **)ft_calloc(ft_count_words_multi(s, c) + 1, sizeof(char *));
 	if (!res)
 		return (NULL);

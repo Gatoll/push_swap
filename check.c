@@ -21,7 +21,7 @@ int is_unique_node(t_stack **stack_a)
 
     if (*stack_a == NULL || (*stack_a)->next == NULL)
         return (FALSE);
-
+        
     start = *stack_a;
     while (start != NULL)
     {
@@ -29,7 +29,11 @@ int is_unique_node(t_stack **stack_a)
         while (current != NULL)
         {
             if (current->value == start->value)
+            {
+                put_error();
                 return (FALSE);
+            }
+                
             current = current->next;
         }
         start = start->next;
@@ -44,7 +48,7 @@ int stack_len(t_stack **stack)
     len = 0;
 	if (!stack)
 		return (0);
-	while ((*stack)->next)
+	while ((*stack) != NULL)
     {
 		*stack = (*stack)->next;
         len++;
@@ -60,7 +64,7 @@ int	is_intover(int sign, long res, long num)
 	{
 		if (sign == 1 && num > (long)INT_MAX % 10)
 			return (TRUE);
-		else if (sign == -1 && num > (long)INT_MIN % 10)
+		if (sign == -1 && num > ((long)INT_MIN % 10) * -1)
 			return (TRUE);
 	}
 	return (FALSE);

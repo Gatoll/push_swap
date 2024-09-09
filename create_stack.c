@@ -34,7 +34,10 @@ int tmp_to_stack(t_stack **stack_a, char **tmp)
     while (*tmp != NULL)
     {
         if (check_atoi(*tmp, &num) == FALSE)
+        {
+            put_error();
             return (FALSE);
+        }
         if (add_stack(stack_a, num) == FALSE)
             return (FALSE);
         tmp++;
@@ -52,7 +55,10 @@ int arg_to_stack(int argc, char *argv[], t_stack **stack_a)
     {
         tmp = ft_split_multi(argv[i], " ,");
         if (!tmp)
+        {
+            put_error();
             return (FALSE);
+        }
         if (tmp_to_stack(stack_a, tmp) == FALSE)
         {
             free_tmp(tmp);
