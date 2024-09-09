@@ -20,28 +20,48 @@ int init_stack(int argc, char *argv[], t_stack **stack_a)
 }
 
 #include <stdio.h>
+void put_stack(t_stack *stack_a, t_stack *stack_b)
+{
+    t_stack *current;
+
+    current = stack_a;
+    printf("stack_a:");
+    while (current != NULL)
+    {
+        printf("%d, ", current->value);
+        current = current->next;
+    }
+    printf("\n");
+    
+    current = stack_b;
+    printf("stack_b:");
+    while (current != NULL)
+    {
+        printf("%d, ", current->value);
+        current = current->next;
+    } 
+    printf("\n");
+}
+
 int main(int argc, char *argv[])
 {
     t_stack *stack_a;
-    //t_stack *stack_b;
+    t_stack *stack_b;
 
     stack_a = NULL;
-    //stack_b = NULL;
+    stack_b = NULL;
 
     if (argc == 1)
         return (1);
     if (init_stack(argc, argv, &stack_a) == FALSE)
         return (1);
 
-    t_stack *current;
-    current = stack_a;
-    while (current != NULL)
-    {
-        printf("%d\n", current->value);
-        current = current->next;
-    }
-    // push_swap(&stack_a, &stack_b);
+    put_stack(stack_a, stack_b);
+    // pb(&stack_a, &stack_b);
+    // rr(&stack_a, &stack_b);
+    // put_stack(stack_a, stack_b);
+    push_swap(&stack_a, &stack_b);
     free_stack(&stack_a);
-    // free_stack(&stack_b);
+    free_stack(&stack_b);
     return (0);
 }
