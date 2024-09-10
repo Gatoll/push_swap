@@ -61,10 +61,8 @@ int main(int argc, char *argv[])
         return (1);
 
     put_stack(stack_a, stack_b);
-    int tmp = serch_med_5(&stack_a);
-    printf("%d\n", tmp);
-    //push_swap(&stack_a, &stack_b);
-    //put_stack(stack_a, stack_b);
+    push_swap(&stack_a, &stack_b);
+    put_stack(stack_a, stack_b);
     
     free_stack(&stack_a);
     free_stack(&stack_b);

@@ -193,6 +193,8 @@ void push_swap(t_stack **stack_a, t_stack **stack_b)
         sa(stack_a);
     if (len_a == 3)
         sort_3_a(stack_a);
+    if (len_a == 5)
+        sort_5(stack_a, stack_b);
     else
         quick_sort(stack_a, stack_b, len_a);
 }
