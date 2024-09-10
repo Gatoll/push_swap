@@ -56,35 +56,6 @@ void sort_3_a(t_stack **stack_a)
 //         rb(stack_b);
 // }
 
-int serch_med_5(t_stack **stack)
-{
-    int med;
-    int count;
-    t_stack *current;
-    t_stack *current2;
-
-    current = *stack;
-    while (current != NULL)
-    {
-        count = 0;
-        current2 = *stack;
-        while (current2 != NULL)
-        {
-            if (current->value > current2->value)
-                count++;
-            current2 = current2->next;
-        }
-        if (count == 2)
-        {
-            med = current->value;
-            return (med);
-        }
-        current = current->next;
-    }
-    return (FALSE);
-}
-
-#include <stdio.h>
 void sort_4_a(t_stack **stack_a, t_stack **stack_b)
 {
     int min;
@@ -121,6 +92,33 @@ void sort_4_a(t_stack **stack_a, t_stack **stack_b)
 //     sort_3_a(stack_a);
 //     pa(stack_a, stack_b);
 // }
+int serch_med_5(t_stack **stack)
+{
+    int med;
+    int count;
+    t_stack *current;
+    t_stack *current2;
+
+    current = *stack;
+    while (current != NULL)
+    {
+        count = 0;
+        current2 = *stack;
+        while (current2 != NULL)
+        {
+            if (current->value > current2->value)
+                count++;
+            current2 = current2->next;
+        }
+        if (count == 2)
+        {
+            med = current->value;
+            return (med);
+        }
+        current = current->next;
+    }
+    return (FALSE);
+}
 
 void sort_5(t_stack **stack_a, t_stack **stack_b)
 {
@@ -139,9 +137,7 @@ void sort_5(t_stack **stack_a, t_stack **stack_b)
             ra(stack_a);
         i++;
     }
-    put_stack(*stack_a, *stack_b);
     sort_3_a(stack_a);
-    put_stack(*stack_a, *stack_b);
     if ((*stack_b)->value < (*stack_b)->next->value)
         sb(stack_b);
     pa(stack_a, stack_b);
@@ -221,11 +217,11 @@ void push_swap(t_stack **stack_a, t_stack **stack_b)
     len_a = stack_len(stack_a);
     if (len_a == 2)
         sa(stack_a);
-    if (len_a == 3)
+    else if (len_a == 3)
         sort_3_a(stack_a);
-    if (len_a == 4)
+    else if (len_a == 4)
         sort_4_a(stack_a, stack_b);
-    if (len_a == 5)
+    else if (len_a == 5)
         sort_5(stack_a, stack_b);
     else
         quick_sort(stack_a, stack_b, len_a);
