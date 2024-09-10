@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void sort_3(t_stack **stack_a)
+void sort_3_a(t_stack **stack_a)
 {
     int first;
     int second;
@@ -27,6 +27,96 @@ void sort_3(t_stack **stack_a)
         ra(stack_a);
 }
 
+// void sort_3_b(t_stack **stack_b)
+// {
+//     int first;
+//     int second;
+//     int third;
+    
+//     first = (*stack_b)->value;
+//     second = (*stack_b)->next->value;
+//     third = (*stack_b)->next->next->value;
+//     if (first < second && first < third)
+//     {
+//         sb(stack_b);
+//         rb(stack_b);
+//     }
+//     else if (first < second && second > third && third < first)
+//         rrb(stack_b);
+//     else if (first > second && second < third && third > first)
+//         sb(stack_b);
+//     else if (first > second && second > third && third < first)
+//     {
+//         sb(stack_b);
+//         rrb(stack_b);
+//     }
+//     else if (first > second && second < third && third < first)
+//         rb(stack_b);
+// }
+
+void sort_4_a(t_stack **stack_a, t_stack **stack_b)
+{
+    int min;
+    t_stack *current;
+
+    min = serch_min(stack_a);
+    current = (*stack_a);
+    while (current->value != min)
+        ra(stack_a);
+    pb(stack_a, stack_b);
+    sort_3(stack_a);
+    pa(stack_a, stack_b);
+}
+
+void sort_5(t_stack **stack_a, t_stack **stack_b)
+{
+    int med;
+    t_stack *current;
+    t_stack *current2;
+
+    current = (*stack_a);
+    med = serch_med(stack_a);
+    while (current != NULL)
+    {
+        if (current->value < med)
+            pb(stack_a, stack_b);
+        else
+            ra(stack_a);
+        current->next;
+    }
+    sort_3(stack_a);
+    if ((*stack_b)->value < (*stack_b)->next->value)
+        sb(stack_b);
+    pa(stack_a, stack_b);
+    pa(stack_a, stack_b);
+}
+
+int serch_med(t_stack **stack)
+{
+    int med;
+    int count;
+    t_stack *current;
+    t_stack *current2;
+
+    count = 0;
+    while (current != NULL)
+    {
+        current2 = current2->next;
+        while (current != NULL)
+        {
+            if (current2->value < current->value)
+                count++;
+            if (count == 3)
+            {
+                med = current->value;
+                return med;
+            }
+            current2 = current2->next;
+        }
+        current = current->next;
+    }
+}
+
 int serch_min(t_stack **stack)
 {
     int min;
@@ -43,22 +133,6 @@ int serch_min(t_stack **stack)
     return (min);
 }
 
-void sort_4to6(t_stack **stack_a, t_stack **stack_b)
-{
-    int min;
-
-    while (stack_len(stack_a) > 3)
-    {
-        min = serch_min(stack_a);
-        while ((*stack_a)->value != min)
-            ra(stack_a);
-        pb(stack_b, stack_a);
-    }
-    if (is_sorted(stack_a) == FALSE)
-        sort_3(stack_a);
-    while ((*stack_b) != NULL)
-        pa(stack_a, stack_b);
-}
 
 // void set_min_max(t_stack **stack_a, int max, int min)
 // {
@@ -111,15 +185,39 @@ void quick_sort(t_stack **stack_a, t_stack **stack_b, int len)
 
 void push_swap(t_stack **stack_a, t_stack **stack_b)
 {
-    int len;
+    int len_a;
 
-    len = stack_len(stack_a);
-    if (len == 2)
+    len_a = stack_len(stack_a);
+    if (len_a == 2)
         sa(stack_a);
-    if (len == 3)
-        sort_3(stack_a);
-    if (4 <= len && len <= 6)
+    if (len_a == 3)
+        sort_3_a(stack_a);
+    if (4 <= len_a && len_a <= 6)
         sort_4to6(stack_a, stack_b);
     else
-        quick_sort(stack_a, stack_b, len);
+        quick_sort(stack_a, stack_b, len_a);
+}
+
+void pibot(t_stack **stack)
+{
+    int i;
+    int j;
+    int len_a;
+    int count;
+
+    i = 0;
+    j = 0;
+    len_a = stack_len(stack);
+    count = 0;
+
+    while (i < len_a)
+    {
+        while (j < )
+        {
+            if ()
+                count++;
+            j++;
+        }
+        i++;
+    }
 }
