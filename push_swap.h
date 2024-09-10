@@ -64,5 +64,5 @@ void partition_stack(t_stack **stack_a, t_stack **stack_b, int pivot);
 void quick_sort(t_stack **stack_a, t_stack **stack_b, int len);
 void push_swap(t_stack **stack_a, t_stack **stack_b);
 
-
+void put_stack(t_stack *stack_a, t_stack *stack_b);
 # endif

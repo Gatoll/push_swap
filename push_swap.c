@@ -9,7 +9,9 @@ void sort_3_a(t_stack **stack_a)
     first = (*stack_a)->value;
     second = (*stack_a)->next->value;
     third = (*stack_a)->next->next->value;
-    if (first < second && first < third)
+    if(first < second && second < third)
+        return ;
+    else if (first < second && first < third)
     {
         sa(stack_a);
         ra(stack_a);
@@ -82,42 +84,71 @@ int serch_med_5(t_stack **stack)
     return (FALSE);
 }
 
+#include <stdio.h>
 void sort_4_a(t_stack **stack_a, t_stack **stack_b)
 {
     int min;
-    t_stack *current;
 
     min = serch_min(stack_a);
-    current = (*stack_a);
-    while (current->value != min)
+    while ((*stack_a)->value != min)
         ra(stack_a);
     pb(stack_a, stack_b);
     sort_3_a(stack_a);
     pa(stack_a, stack_b);
 }
 
+// void sort_4_a(t_stack **stack_a, t_stack **stack_b)
+// {
+//     int min;
+//     int len_a;
+//     int i;
+
+//     min = serch_min(stack_a);
+//     len_a = stack_len(stack_a);
+//     i = 0;
+//     while (i < len_a)
+//     {
+//         if ((*stack_a)->value == min)
+//         {
+//             pa(stack_a, stack_b);
+//             return ;
+//         }
+//         else
+//             ra(stack_a);
+//         i++;
+//     }
+//     pb(stack_a, stack_b);
+//     sort_3_a(stack_a);
+//     pa(stack_a, stack_b);
+// }
+
 void sort_5(t_stack **stack_a, t_stack **stack_b)
 {
     int med;
-    t_stack *current;
+    int len_a;
+    int i;
 
-    current = (*stack_a);
     med = serch_med_5(stack_a);
-    while (current != NULL)
+    len_a = stack_len(stack_a);
+    i = 0;
+    while (i < len_a)
     {
-        if (current->value < med)
+        if ((*stack_a)->value < med)
             pb(stack_a, stack_b);
         else
             ra(stack_a);
-        current = current->next;
+        i++;
     }
+    put_stack(*stack_a, *stack_b);
     sort_3_a(stack_a);
+    put_stack(*stack_a, *stack_b);
     if ((*stack_b)->value < (*stack_b)->next->value)
         sb(stack_b);
     pa(stack_a, stack_b);
     pa(stack_a, stack_b);
 }
 
+#include <stdio.h>
 int serch_min(t_stack **stack)
 {
     int min;
@@ -133,7 +164,6 @@ int serch_min(t_stack **stack)
     }
     return (min);
 }
-
 
 // void set_min_max(t_stack **stack_a, int max, int min)
 // {
@@ -193,6 +223,8 @@ void push_swap(t_stack **stack_a, t_stack **stack_b)
         sa(stack_a);
     if (len_a == 3)
         sort_3_a(stack_a);
+    if (len_a == 4)
+        sort_4_a(stack_a, stack_b);
     if (len_a == 5)
         sort_5(stack_a, stack_b);
     else
