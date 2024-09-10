@@ -55,7 +55,7 @@ int init_stack(int argc, char *argv[], t_stack **stack_a);
 
 // push_swap
 void sort_3_a(t_stack **stack_a);
-int serch_med(t_stack **stack);
+int serch_med_5(t_stack **stack);
 void sort_4_a(t_stack **stack_a, t_stack **stack_b);
 void sort_5(t_stack **stack_a, t_stack **stack_b);
 int serch_min(t_stack **stack);

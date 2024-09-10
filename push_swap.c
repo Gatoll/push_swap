@@ -54,28 +54,30 @@ void sort_3_a(t_stack **stack_a)
 //         rb(stack_b);
 // }
 
-int serch_med(t_stack **stack)
+#include <stdio.h>
+int serch_med_5(t_stack **stack)
 {
     int med;
     int count;
     t_stack *current;
     t_stack *current2;
 
-    current = (*stack);
-    count = 0;
+    current = *stack;
     while (current != NULL)
     {
-        current2 = current2->next;
-        while (current != NULL)
+        count = 0;
+        current2 = current->next;
+        while (current2 != NULL)
         {
-            if (current2->value < current->value)
+            if (current->value > current2->value)
                 count++;
-            if (count == 3)
-            {
-                med = current->value;
-                return (med);
-            }
             current2 = current2->next;
+        }
+        printf("%d\n", count);
+        if (count == 2)
+        {
+            med = current->value;
+            return (med);
         }
         current = current->next;
     }
@@ -102,7 +104,7 @@ void sort_5(t_stack **stack_a, t_stack **stack_b)
     t_stack *current;
 
     current = (*stack_a);
-    med = serch_med(stack_a);
+    med = serch_med_5(stack_a);
     while (current != NULL)
     {
         if (current->value < med)
