@@ -54,7 +54,6 @@ void sort_3_a(t_stack **stack_a)
 //         rb(stack_b);
 // }
 
-#include <stdio.h>
 int serch_med_5(t_stack **stack)
 {
     int med;
@@ -66,14 +65,13 @@ int serch_med_5(t_stack **stack)
     while (current != NULL)
     {
         count = 0;
-        current2 = current->next;
+        current2 = *stack;
         while (current2 != NULL)
         {
             if (current->value > current2->value)
                 count++;
             current2 = current2->next;
         }
-        printf("%d\n", count);
         if (count == 2)
         {
             med = current->value;
