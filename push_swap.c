@@ -54,43 +54,6 @@ void sort_3_a(t_stack **stack_a)
 //         rb(stack_b);
 // }
 
-void sort_4_a(t_stack **stack_a, t_stack **stack_b)
-{
-    int min;
-    t_stack *current;
-
-    min = serch_min(stack_a);
-    current = (*stack_a);
-    while (current->value != min)
-        ra(stack_a);
-    pb(stack_a, stack_b);
-    sort_3(stack_a);
-    pa(stack_a, stack_b);
-}
-
-void sort_5(t_stack **stack_a, t_stack **stack_b)
-{
-    int med;
-    t_stack *current;
-    t_stack *current2;
-
-    current = (*stack_a);
-    med = serch_med(stack_a);
-    while (current != NULL)
-    {
-        if (current->value < med)
-            pb(stack_a, stack_b);
-        else
-            ra(stack_a);
-        current->next;
-    }
-    sort_3(stack_a);
-    if ((*stack_b)->value < (*stack_b)->next->value)
-        sb(stack_b);
-    pa(stack_a, stack_b);
-    pa(stack_a, stack_b);
-}
-
 int serch_med(t_stack **stack)
 {
     int med;
@@ -98,6 +61,7 @@ int serch_med(t_stack **stack)
     t_stack *current;
     t_stack *current2;
 
+    current = (*stack);
     count = 0;
     while (current != NULL)
     {
@@ -109,12 +73,49 @@ int serch_med(t_stack **stack)
             if (count == 3)
             {
                 med = current->value;
-                return med;
+                return (med);
             }
             current2 = current2->next;
         }
         current = current->next;
     }
+    return (FALSE);
+}
+
+void sort_4_a(t_stack **stack_a, t_stack **stack_b)
+{
+    int min;
+    t_stack *current;
+
+    min = serch_min(stack_a);
+    current = (*stack_a);
+    while (current->value != min)
+        ra(stack_a);
+    pb(stack_a, stack_b);
+    sort_3_a(stack_a);
+    pa(stack_a, stack_b);
+}
+
+void sort_5(t_stack **stack_a, t_stack **stack_b)
+{
+    int med;
+    t_stack *current;
+
+    current = (*stack_a);
+    med = serch_med(stack_a);
+    while (current != NULL)
+    {
+        if (current->value < med)
+            pb(stack_a, stack_b);
+        else
+            ra(stack_a);
+        current = current->next;
+    }
+    sort_3_a(stack_a);
+    if ((*stack_b)->value < (*stack_b)->next->value)
+        sb(stack_b);
+    pa(stack_a, stack_b);
+    pa(stack_a, stack_b);
 }
 
 int serch_min(t_stack **stack)
@@ -168,7 +169,7 @@ void quick_sort(t_stack **stack_a, t_stack **stack_b, int len)
     if (len <= 3)
     {
         if (!is_sorted(stack_a))
-            sort_3(stack_a);
+            sort_3_a(stack_a);
         return;
     }
     pivot = (*stack_a)->value;
@@ -192,32 +193,30 @@ void push_swap(t_stack **stack_a, t_stack **stack_b)
         sa(stack_a);
     if (len_a == 3)
         sort_3_a(stack_a);
-    if (4 <= len_a && len_a <= 6)
-        sort_4to6(stack_a, stack_b);
     else
         quick_sort(stack_a, stack_b, len_a);
 }
 
-void pibot(t_stack **stack)
-{
-    int i;
-    int j;
-    int len_a;
-    int count;
+// void pibot(t_stack **stack)
+// {
+//     int i;
+//     int j;
+//     int len_a;
+//     int count;
 
-    i = 0;
-    j = 0;
-    len_a = stack_len(stack);
-    count = 0;
+//     i = 0;
+//     j = 0;
+//     len_a = stack_len(stack);
+//     count = 0;
 
-    while (i < len_a)
-    {
-        while (j < )
-        {
-            if ()
-                count++;
-            j++;
-        }
-        i++;
-    }
-}
+//     while (i < len_a)
+//     {
+//         while (j < )
+//         {
+//             if ()
+//                 count++;
+//             j++;
+//         }
+//         i++;
+//     }
+// }

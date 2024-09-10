@@ -54,9 +54,11 @@ void put_error(void);
 int init_stack(int argc, char *argv[], t_stack **stack_a);
 
 // push_swap
-void sort_3(t_stack **stack_a);
+void sort_3_a(t_stack **stack_a);
+int serch_med(t_stack **stack);
+void sort_4_a(t_stack **stack_a, t_stack **stack_b);
+void sort_5(t_stack **stack_a, t_stack **stack_b);
 int serch_min(t_stack **stack);
-void sort_4to6(t_stack **stack_a, t_stack **stack_b);
 //void set_min_max(t_stack **stack_a, int max, int min);
 void partition_stack(t_stack **stack_a, t_stack **stack_b, int pivot);
 void quick_sort(t_stack **stack_a, t_stack **stack_b, int len);
