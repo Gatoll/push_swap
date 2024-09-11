@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:32 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 01:44:06 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 03:30:51 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	serch_min(t_stack **stack, int *len_to_min)
 	len_to_min = 0;
 	while (current != NULL)
 	{
-		if (min > current->value)
+		if (current->value < min)
 			min = current->value;
 		current = current->next;
 		len_to_min++;
