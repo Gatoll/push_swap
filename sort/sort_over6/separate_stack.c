@@ -1,54 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   separate_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:35 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 01:58:29 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 03:12:59 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	get_pivot(t_stack **stack, int *pivot)
+static void	get_pivot(t_stack **stack_a, int len_a, int *pivot)
 {
 	int		count;
-	int		len;
 	t_stack	*current;
-	t_stack	*current2;
+	t_stack	*compare;
 
-	current = *stack;
-	len = stack_len(stack);
+	current = *stack_a;
 	while (current != NULL)
 	{
 		count = 0;
-		current2 = *stack;
-		while (current2 != NULL)
+		compare = *stack_a;
+		while (compare != NULL)
 		{
-			if (current->value > current2->value)
+			if (current->value > compare->value)
 				count++;
-			current2 = current2->next;
+			compare = compare->next;
 		}
-		if (count == (len / 5))
+		if (count == (len_a / 5))
 			pivot[0] = current->value;
-		else if (count == (len / 3 * 2))
+		else if (count == (len_a / 3 * 2))
 			pivot[1] = current->value;
 		current = current->next;
 	}
 }
 
-void	separate_stack(t_stack **stack_a, t_stack **stack_b)
+void	separate_stack(t_stack **stack_a, t_stack **stack_b, int len_a)
 {
 	int	pivot[2];
-	int	len_a;
-	int	i;
 
-	get_pivot(stack_a, pivot);
-	len_a = stack_len(stack_a);
-	i = 0;
-	while (i < len_a)
+	get_pivot(stack_a, len_a, pivot);
+	while (len_a-- > 0)
 	{
 		if ((*stack_a)->value <= pivot[0])
 		{
@@ -59,7 +53,6 @@ void	separate_stack(t_stack **stack_a, t_stack **stack_b)
 			pb(stack_a, stack_b);
 		else
 			ra(stack_a);
-		i++;
 	}
 	len_a = stack_len(stack_a);
 	while (len_a-- > 5)

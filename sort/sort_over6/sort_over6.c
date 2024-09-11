@@ -6,20 +6,18 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:11 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 02:03:57 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 03:17:50 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	end_rotate(t_stack **stack_a)
+static void	end_rotate(t_stack **stack_a, int len_a)
 {
 	int	len_to_min;
-	int	len_a;
 	int	min;
 
 	min = serch_min(stack_a, &len_to_min);
-	len_a = stack_len(stack_a);
 	if (len_to_min < (len_a / 2))
 	{
 		while ((*stack_a)->value != min)
@@ -72,12 +70,12 @@ static void	do_rotate_a(t_stack **stack_a, int step_a)
 	}
 }
 
-void	sort_over6(t_stack **stack_a, t_stack **stack_b)
+void	sort_over6(t_stack **stack_a, t_stack **stack_b, int len_a)
 {
 	int	step_a;
 	int	step_b;
 
-	separate_stack(stack_a, stack_b);
+	separate_stack(stack_a, stack_b, len_a);
 	push_swap(stack_a, stack_b);
 	while ((*stack_b) != NULL)
 	{
@@ -86,5 +84,5 @@ void	sort_over6(t_stack **stack_a, t_stack **stack_b)
 		do_rotate_b(stack_b, step_b);
 		pa(stack_a, stack_b);
 	}
-	end_rotate(stack_a);
+	end_rotate(stack_a, len_a);
 }

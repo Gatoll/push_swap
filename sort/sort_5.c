@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:09 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 02:55:22 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 03:10:23 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,14 @@ static int	serch_med_5(t_stack **stack)
 void	sort_5(t_stack **stack_a, t_stack **stack_b, int len_a)
 {
 	int	med;
-	int	i;
 
 	med = serch_med_5(stack_a);
-	i = 0;
-	while (i < len_a)
+	while (len_a-- > 0)
 	{
 		if ((*stack_a)->value < med)
 			pb(stack_a, stack_b);
 		else
 			ra(stack_a);
-		i++;
 	}
 	sort_3_a(stack_a);
 	if ((*stack_b)->value < (*stack_b)->next->value)
