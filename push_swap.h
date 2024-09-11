@@ -30,12 +30,16 @@ void rra(t_stack **stack_a);
 void rrb(t_stack **stack_b);
 void rrr(t_stack **stack_a, t_stack **stack_b);
 
-// check
-int is_sorted(t_stack **stack);
-int is_unique_node(t_stack **stack_a);
-int stack_len(t_stack **stack);
-int	is_intover(int sign, long res, long num);
-int check_atoi(char *str, long *res);
+
+// sort
+// sort_3
+void sort_3_a(t_stack **stack_a);
+
+// sort_4
+void sort_4_a(t_stack **stack_a, t_stack **stack_b);
+
+// sort_5
+void sort_5(t_stack **stack_a, t_stack **stack_b);
 
 // create_stack
 int add_stack(t_stack **stack_a, int num);
@@ -50,19 +54,32 @@ void	free_tmp(char **tmp);
 char	**ft_split_multi(char const *s, char *c);
 
 // main
-void put_error(void);
 int init_stack(int argc, char *argv[], t_stack **stack_a);
 
 // push_swap
-void sort_3_a(t_stack **stack_a);
-int serch_med_5(t_stack **stack);
-void sort_4_a(t_stack **stack_a, t_stack **stack_b);
-void sort_5(t_stack **stack_a, t_stack **stack_b);
 int serch_min(t_stack **stack);
-//void set_min_max(t_stack **stack_a, int max, int min);
-void partition_stack(t_stack **stack_a, t_stack **stack_b);
-//void quick_sort(t_stack **stack_a, t_stack **stack_b, int len);
+void get_pivot(t_stack **stack, int *pivot);
+void separate_stack(t_stack **stack_a, t_stack **stack_b);
+int count_step_a(t_stack **stack_a, int value);
+int count_step_b(t_stack **stack_b, int tmp_step_b);
+void get_min_step(t_stack **stack_a, t_stack **stack_b, int *step_a, int *step_b);
+void do_rotate_a(t_stack **stack_a, int step_a);
+void do_rotate_b(t_stack **stack_b, int step_b);
+void sort6_to(t_stack **stack_a, t_stack **stack_b);
 void push_swap(t_stack **stack_a, t_stack **stack_b);
 
+// utils
+int is_sorted(t_stack **stack);
+int is_unique_node(t_stack **stack_a);
+int stack_len(t_stack **stack);
+int	is_intover(int sign, long res, long num);
+int check_atoi(char *str, long *res);
+
+// utils2
+int ft_abs(int num);
+void put_error(void);
+
+
 void put_stack(t_stack *stack_a, t_stack *stack_b);
+
 # endif

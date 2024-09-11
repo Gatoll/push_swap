@@ -10,12 +10,16 @@ SRCS = operate/push.c \
 	   operate/reverse_rotate.c \
 	   operate/rotate.c \
 	   operate/swap.c \
-	   check.c \
-	   free.c \
-	   main.c \
+	   sort/sort_3.c \
+	   sort/sort_4.c \
+	   sort/sort_5.c \
 	   create_stack.c \
+	   free.c \
+	   ft_split_multi.c \
+	   main.c \
 	   push_swap.c \
-	   ft_split_multi.c
+	   utils.c \
+	   utils2.c
 
 OBJS = $(SRCS:.c=.o)
 

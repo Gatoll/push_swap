@@ -1,10 +1,5 @@
 #include "push_swap.h"
 
-void put_error(void)
-{
-    write(1, "Error\n", 6);
-}
-
 int init_stack(int argc, char *argv[], t_stack **stack_a)
 {
     if (arg_to_stack(argc, argv, stack_a) == FALSE)
@@ -46,7 +41,6 @@ void put_stack(t_stack *stack_a, t_stack *stack_b)
     printf("\n");
 }
 
-#include <stdio.h>
 int main(int argc, char *argv[])
 {
     t_stack *stack_a;
