@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/11 16:05:40 by kaokazak          #+#    #+#             */
+/*   Updated: 2024/09/11 16:07:08 by kaokazak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void free_stack(t_stack **stack)
+void	free_stack(t_stack **stack)
 {
-    t_stack	*tmp;
+	t_stack	*tmp;
 
-    if (!stack)
+	if (!stack)
 		return ;
-    while (*stack)
+	while (*stack)
 	{
 		tmp = (*stack)->next;
 		free(*stack);
@@ -17,9 +29,9 @@ void free_stack(t_stack **stack)
 
 void	free_tmp(char **tmp)
 {
-    char **start;
+	char	**start;
 
-    start = tmp;
+	start = tmp;
 	while (*tmp != NULL)
 	{
 		free(*tmp);

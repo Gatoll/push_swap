@@ -1,72 +1,83 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_stack.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/11 16:05:35 by kaokazak          #+#    #+#             */
+/*   Updated: 2024/09/11 16:07:01 by kaokazak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int add_stack(t_stack **stack_a, int num)
+static int	add_stack(t_stack **stack_a, int num)
 {
-    t_stack *new_node;
-    t_stack *current;
+	t_stack	*new_node;
+	t_stack	*current;
 
-    new_node = (t_stack *)malloc(sizeof(t_stack));
+	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_node)
 		return (FALSE);
-
-    new_node->value = num;
-    new_node->next = NULL;
-    if (*stack_a == NULL)
-    {
-        new_node->prev = NULL;
-        *stack_a = new_node;
-    }
-    else
-    {
-        current = *stack_a;
-        while (current->next)
-            current = current->next;
-        current->next = new_node;
-        new_node->prev = current;
-    }
-    return (TRUE);
+	new_node->value = num;
+	new_node->next = NULL;
+	if (*stack_a == NULL)
+	{
+		new_node->prev = NULL;
+		*stack_a = new_node;
+	}
+	else
+	{
+		current = *stack_a;
+		while (current->next)
+			current = current->next;
+		current->next = new_node;
+		new_node->prev = current;
+	}
+	return (TRUE);
 }
 
-static int tmp_to_stack(t_stack **stack_a, char **tmp)
+static int	tmp_to_stack(t_stack **stack_a, char **tmp)
 {
-    long num;
+	long	num;
 
-    while (*tmp != NULL)
-    {
-        if (check_atoi(*tmp, &num) == FALSE)
-        {
-            put_error();
-            return (FALSE);
-        }
-        if (add_stack(stack_a, num) == FALSE)
-            return (FALSE);
-        tmp++;
-    }
-    return (TRUE);
+	while (*tmp != NULL)
+	{
+		if (check_atoi(*tmp, &num) == FALSE)
+		{
+			put_error();
+			return (FALSE);
+		}
+		if (add_stack(stack_a, num) == FALSE)
+			return (FALSE);
+		tmp++;
+	}
+	return (TRUE);
 }
 
-int arg_to_stack(int argc, char *argv[], t_stack **stack_a)
+int	arg_to_stack(int argc, char *argv[], t_stack **stack_a)
 {
-    int i;
-    char **tmp;
-    
-    i = 1;
-    while (i < argc)
-    {
-        tmp = ft_split_multi(argv[i], " ,");
-        if (!tmp)
-        {
-            put_error();
-            return (FALSE);
-        }
-        if (tmp_to_stack(stack_a, tmp) == FALSE)
-        {
-            free_tmp(tmp);
-            free_stack(stack_a);
-            return (FALSE);
-        }
-        free_tmp(tmp);
-        i++;
-    }
-    return (TRUE);
+	int		i;
+	char	**tmp;
+
+	i = 1;
+	while (i < argc)
+	{
+		tmp = ft_split_multi(argv[i], " ,");
+		if (!tmp)
+		{
+			put_error();
+			return (FALSE);
+		}
+		if (tmp_to_stack(stack_a, tmp) == FALSE)
+		{
+			free_tmp(tmp);
+			free_stack(stack_a);
+			return (FALSE);
+		}
+		free_tmp(tmp);
+		i++;
+	}
+	return (TRUE);
 }

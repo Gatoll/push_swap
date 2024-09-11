@@ -1,13 +1,25 @@
-# include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split_multi.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/11 16:05:43 by kaokazak          #+#    #+#             */
+/*   Updated: 2024/09/11 16:07:11 by kaokazak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
 
 static int	ft_issep_multi(char s, char *c)
 {
-    while (*c != '\0')
-    {
-        if (s == *c)
-		    return (1);
-        c++;
-    }
+	while (*c != '\0')
+	{
+		if (s == *c)
+			return (1);
+		c++;
+	}
 	return (0);
 }
 
@@ -75,7 +87,6 @@ char	**ft_split_multi(char const *s, char *c)
 
 	if (!s || *s == '\0')
 		return (NULL);
-		
 	res = (char **)ft_calloc(ft_count_words_multi(s, c) + 1, sizeof(char *));
 	if (!res)
 		return (NULL);
