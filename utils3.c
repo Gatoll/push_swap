@@ -47,6 +47,12 @@ void get_min_step(t_stack **stack_a, t_stack **stack_b, int *step_a, int *step_b
     {
         tmp_step_a = count_step_a(stack_a, current->value);
         tmp_step_b = count_step_b(stack_b, count);
+        if (current->next == NULL)
+        {
+            *step_a = tmp_step_a;
+            *step_b = tmp_step_b;
+            return ;
+        }
         if (ft_abs(tmp_step_a) + ft_abs(tmp_step_b) < ft_abs(*step_a) + ft_abs(*step_b))
         {
             *step_a = tmp_step_a;

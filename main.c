@@ -54,9 +54,9 @@ int main(int argc, char *argv[])
     if (init_stack(argc, argv, &stack_a) == FALSE)
         return (1);
 
-    put_stack(stack_a, stack_b);
+    //put_stack(stack_a, stack_b);
     push_swap(&stack_a, &stack_b);
-    put_stack(stack_a, stack_b);
+    //put_stack(stack_a, stack_b);
     
     free_stack(&stack_a);
     free_stack(&stack_b);

@@ -12,18 +12,20 @@ void put_error(void)
     write(1, "Error\n", 6);
 }
 
-int serch_min(t_stack **stack)
+int serch_min(t_stack **stack, int *len_to_min)
 {
     int min;
     t_stack *current;
 
     min = (*stack)->value;
     current = (*stack)->next;
+    len_to_min = 0;
     while (current != NULL)
     {
         if (min > current->value)
             min = current->value;
         current = current->next;
+        len_to_min++;
     }
     return (min);
 }
@@ -47,7 +49,7 @@ void get_pivot(t_stack **stack, int *pivot)
                 count++;
             current2 = current2->next;
         }
-        if (count == (len / 3))
+        if (count == (len / 5))
             pivot[0] = current->value;
         else if (count == (len / 3 * 2))
             pivot[1] = current->value;

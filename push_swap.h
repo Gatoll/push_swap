@@ -57,7 +57,7 @@ char	**ft_split_multi(char const *s, char *c);
 int init_stack(int argc, char *argv[], t_stack **stack_a);
 
 // push_swap
-int serch_min(t_stack **stack);
+int serch_min(t_stack **stack, int *len_to_min);
 void get_pivot(t_stack **stack, int *pivot);
 void separate_stack(t_stack **stack_a, t_stack **stack_b);
 int count_step_a(t_stack **stack_a, int value);
@@ -79,7 +79,7 @@ int check_atoi(char *str, long *res);
 int ft_abs(int num);
 void put_error(void);
 
-
+#include <stdio.h>
 void put_stack(t_stack *stack_a, t_stack *stack_b);
 
 # endif
