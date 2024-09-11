@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:11 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 06:22:26 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 06:40:34 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,13 @@ static void	do_rotate_b(t_stack **stack_b, int step_b)
 {
 	if (step_b > 0)
 	{
-		while (step_b > 0)
-		{
+		while (step_b-- > 0)
 			rb(stack_b);
-			step_b--;
-		}
 	}
 	else
 	{
-		while (step_b < 0)
-		{
+		while (step_b++ < 0)
 			rrb(stack_b);
-			step_b++;
-		}
 	}
 }
 
@@ -54,19 +48,35 @@ static void	do_rotate_a(t_stack **stack_a, int step_a)
 {
 	if (step_a > 0)
 	{
-		while (step_a > 0)
-		{
+		while (step_a-- > 0)
 			ra(stack_a);
-			step_a--;
+	}
+	else
+	{
+		while (step_a++ < 0)
+			rra(stack_a);
+	}
+}
+
+static void do_rotate(t_stack **stack_a, t_stack **stack_b, int step_a, int step_b)
+{
+	if (step_a == step_b)
+	{
+		if (step_a >= 0)
+		{
+			while (step_a-- > 0)
+				rr(stack_a, stack_b);
+		}
+		else
+		{
+			while (step_a++ < 0)
+				rrr(stack_a, stack_b);
 		}
 	}
 	else
 	{
-		while (step_a < 0)
-		{
-			rra(stack_a);
-			step_a++;
-		}
+		do_rotate_a(stack_a, step_a);
+		do_rotate_b(stack_b, step_b);
 	}
 }
 
@@ -84,8 +94,7 @@ void	sort_over6(t_stack **stack_a, t_stack **stack_b, int len_a)
 	{
 		get_min_step(stack_a, stack_b, &step_a, &step_b);
 		//printf("step_a = %d, step_b = %d\n", step_a, step_b);
-		do_rotate_a(stack_a, step_a);
-		do_rotate_b(stack_b, step_b);
+		do_rotate(stack_a, stack_b, step_a, step_b);
 		pa(stack_a, stack_b);
 		//put_stack(*stack_a, *stack_b);
 	}

@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:35 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 03:56:54 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 06:27:56 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	separate_stack(t_stack **stack_a, t_stack **stack_b, int len_a)
 			ra(stack_a);
 	}
 	len_a = stack_len(stack_a);
-	while (len_a-- > 5)
+	while (len_a-- > 6)
 		pb(stack_a, stack_b);
 }
