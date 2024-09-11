@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:35 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 03:12:59 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 03:56:54 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static void	get_pivot(t_stack **stack_a, int len_a, int *pivot)
 				count++;
 			compare = compare->next;
 		}
-		if (count == (len_a / 5))
+		if (count == (len_a / 3 - 1))
 			pivot[0] = current->value;
-		else if (count == (len_a / 3 * 2))
+		else if (count == ((len_a / 3) * 2) - 1)
 			pivot[1] = current->value;
 		current = current->next;
 	}
@@ -42,6 +42,7 @@ void	separate_stack(t_stack **stack_a, t_stack **stack_b, int len_a)
 	int	pivot[2];
 
 	get_pivot(stack_a, len_a, pivot);
+	//printf("pivot[0] = %d, pivot[1] = %d\n", pivot[0], pivot[1]);
 	while (len_a-- > 0)
 	{
 		if ((*stack_a)->value <= pivot[0])

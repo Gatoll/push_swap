@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:11 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 03:17:50 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 06:22:26 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,18 @@ void	sort_over6(t_stack **stack_a, t_stack **stack_b, int len_a)
 	int	step_b;
 
 	separate_stack(stack_a, stack_b, len_a);
+	//put_stack(*stack_a, *stack_b);
 	push_swap(stack_a, stack_b);
+	//put_stack(*stack_a, *stack_b);
+	//printf("--- sorted a ---\n");
 	while ((*stack_b) != NULL)
 	{
 		get_min_step(stack_a, stack_b, &step_a, &step_b);
+		//printf("step_a = %d, step_b = %d\n", step_a, step_b);
 		do_rotate_a(stack_a, step_a);
 		do_rotate_b(stack_b, step_b);
 		pa(stack_a, stack_b);
+		//put_stack(*stack_a, *stack_b);
 	}
 	end_rotate(stack_a, len_a);
 }
