@@ -1,15 +1,20 @@
 #include "push_swap.h"
 
-int ft_abs(int num)
+int stack_len(t_stack **stack)
 {
-    if (num < 0)
-        return (-num);
-    return (num);
-}
+    int len;
+    t_stack *current;
 
-void put_error(void)
-{
-    write(1, "Error\n", 6);
+    len = 0;
+	if (!stack)
+		return (0);
+    current = *stack;
+	while (current != NULL)
+    {
+		current = current->next;
+        len++;
+    }
+	return (len);
 }
 
 int serch_min(t_stack **stack, int *len_to_min)
@@ -28,6 +33,13 @@ int serch_min(t_stack **stack, int *len_to_min)
         len_to_min++;
     }
     return (min);
+}
+
+int ft_abs(int num)
+{
+    if (num < 0)
+        return (-num);
+    return (num);
 }
 
 void get_pivot(t_stack **stack, int *pivot)

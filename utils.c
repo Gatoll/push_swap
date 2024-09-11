@@ -1,61 +1,8 @@
 #include "push_swap.h"
 
-int is_sorted(t_stack **stack)
+void put_error(void)
 {
-    t_stack *current;
-    
-    current = *stack;
-    while (current->next)
-    {
-        if ((current->value) > (current->next->value))
-            return (FALSE);
-        current = current->next;
-    }
-    return (TRUE);
-}
-
-int is_unique_node(t_stack **stack_a)
-{
-    t_stack *start;
-    t_stack *current;
-
-    if (*stack_a == NULL || (*stack_a)->next == NULL)
-        return (FALSE);
-        
-    start = *stack_a;
-    while (start != NULL)
-    {
-        current = start->next;
-        while (current != NULL)
-        {
-            if (current->value == start->value)
-            {
-                put_error();
-                return (FALSE);
-            }
-                
-            current = current->next;
-        }
-        start = start->next;
-    }
-    return (TRUE);
-}
-
-int stack_len(t_stack **stack)
-{
-    int len;
-    t_stack *current;
-
-    len = 0;
-	if (!stack)
-		return (0);
-    current = *stack;
-	while (current != NULL)
-    {
-		current = current->next;
-        len++;
-    }
-	return (len);
+    write(1, "Error\n", 6);
 }
 
 int	is_intover(int sign, long res, long num)
@@ -95,5 +42,46 @@ int check_atoi(char *str, long *res)
         str++;
     }
     *res *= sign;
+    return (TRUE);
+}
+
+int is_unique_node(t_stack **stack_a)
+{
+    t_stack *start;
+    t_stack *current;
+
+    if (*stack_a == NULL || (*stack_a)->next == NULL)
+        return (FALSE);
+        
+    start = *stack_a;
+    while (start != NULL)
+    {
+        current = start->next;
+        while (current != NULL)
+        {
+            if (current->value == start->value)
+            {
+                put_error();
+                return (FALSE);
+            }
+                
+            current = current->next;
+        }
+        start = start->next;
+    }
+    return (TRUE);
+}
+
+int is_sorted(t_stack **stack)
+{
+    t_stack *current;
+    
+    current = *stack;
+    while (current->next)
+    {
+        if ((current->value) > (current->next->value))
+            return (FALSE);
+        current = current->next;
+    }
     return (TRUE);
 }

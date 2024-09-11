@@ -29,11 +29,6 @@ int count_step_b(t_stack **stack_b, int tmp_step_b)
     return (tmp_step_b);
 }
 
-// int union_step(int step_a, int step_b)
-// {
-//     return (ft_abs(step_a)+ft_abs(step_b));
-// }
-
 void get_min_step(t_stack **stack_a, t_stack **stack_b, int *step_a, int *step_b)
 {
     int tmp_step_a;
