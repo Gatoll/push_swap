@@ -10,6 +10,18 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+// create_stack/
+// create_stack
+int arg_to_stack(int argc, char *argv[], t_stack **stack_a);
+
+// free
+void free_stack(t_stack **stack);
+void	free_tmp(char **tmp);
+
+// ft_split_multi
+char	**ft_split_multi(char const *s, char *c);
+
+
 // oprate/
 // push
 void pa(t_stack **stack_a, t_stack **stack_b);
@@ -40,18 +52,6 @@ void sort_4_a(t_stack **stack_a, t_stack **stack_b);
 
 // sort_5
 void sort_5(t_stack **stack_a, t_stack **stack_b);
-
-// create_stack
-int add_stack(t_stack **stack_a, int num);
-int tmp_to_stack(t_stack **stack_a, char **tmp);
-int arg_to_stack(int argc, char *argv[], t_stack **stack_a);
-
-// free
-void free_stack(t_stack **stack);
-void	free_tmp(char **tmp);
-
-// ft_split_multi
-char	**ft_split_multi(char const *s, char *c);
 
 // main
 int init_stack(int argc, char *argv[], t_stack **stack_a);

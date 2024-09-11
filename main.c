@@ -17,29 +17,10 @@ int init_stack(int argc, char *argv[], t_stack **stack_a)
     return (TRUE);
 }
 
-#include <stdio.h>
-void put_stack(t_stack *stack_a, t_stack *stack_b)
-{
-    t_stack *current;
-
-    current = stack_a;
-    printf("stack_a:");
-    while (current != NULL)
-    {
-        printf("%d, ", current->value);
-        current = current->next;
-    }
-    printf("\n");
-    
-    current = stack_b;
-    printf("stack_b:");
-    while (current != NULL)
-    {
-        printf("%d, ", current->value);
-        current = current->next;
-    } 
-    printf("\n");
-}
+// __attribute__((destructor))
+// static void destructor() {
+//     system("leaks -q a.out");
+// }
 
 int main(int argc, char *argv[])
 {

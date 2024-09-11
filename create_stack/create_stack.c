@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int add_stack(t_stack **stack_a, int num)
+static int add_stack(t_stack **stack_a, int num)
 {
     t_stack *new_node;
     t_stack *current;
@@ -27,7 +27,7 @@ int add_stack(t_stack **stack_a, int num)
     return (TRUE);
 }
 
-int tmp_to_stack(t_stack **stack_a, char **tmp)
+static int tmp_to_stack(t_stack **stack_a, char **tmp)
 {
     long num;
 
