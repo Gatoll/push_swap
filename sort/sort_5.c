@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:09 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/11 16:07:43 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 02:55:22 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,34 @@
 
 static int	serch_med_5(t_stack **stack)
 {
-	int		med;
 	int		count;
 	t_stack	*current;
-	t_stack	*current2;
+	t_stack	*compare;
 
 	current = *stack;
 	while (current != NULL)
 	{
 		count = 0;
-		current2 = *stack;
-		while (current2 != NULL)
+		compare = *stack;
+		while (compare != NULL)
 		{
-			if (current->value > current2->value)
+			if (current->value > compare->value)
 				count++;
-			current2 = current2->next;
+			compare = compare->next;
 		}
 		if (count == 2)
-		{
-			med = current->value;
-			return (med);
-		}
+			return (current->value);
 		current = current->next;
 	}
 	return (FALSE);
 }
 
-void	sort_5(t_stack **stack_a, t_stack **stack_b)
+void	sort_5(t_stack **stack_a, t_stack **stack_b, int len_a)
 {
 	int	med;
-	int	len_a;
 	int	i;
 
 	med = serch_med_5(stack_a);
-	len_a = stack_len(stack_a);
 	i = 0;
 	while (i < len_a)
 	{

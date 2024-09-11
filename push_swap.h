@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:28 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 02:19:00 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 02:46:53 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ void				push_swap(t_stack **stack_a, t_stack **stack_b);
 // sort_3
 void				sort_3_a(t_stack **stack_a);
 // sort_4
-void				sort_4_a(t_stack **stack_a, t_stack **stack_b);
+void	sort_4_a(t_stack **stack_a, t_stack **stack_b, int len_a);
 // sort_5
-void				sort_5(t_stack **stack_a, t_stack **stack_b);
+void	sort_5(t_stack **stack_a, t_stack **stack_b, int len_a);
 
 
 // utils
