@@ -92,6 +92,7 @@ void sort_4_a(t_stack **stack_a, t_stack **stack_b)
 //     sort_3_a(stack_a);
 //     pa(stack_a, stack_b);
 // }
+
 int serch_med_5(t_stack **stack)
 {
     int med;
@@ -144,7 +145,6 @@ void sort_5(t_stack **stack_a, t_stack **stack_b)
     pa(stack_a, stack_b);
 }
 
-#include <stdio.h>
 int serch_min(t_stack **stack)
 {
     int min;
@@ -175,38 +175,146 @@ int serch_min(t_stack **stack)
 //     }
 // }
 
-void partition_stack(t_stack **stack_a, t_stack **stack_b, int pivot)
+// void quick_sort(t_stack **stack_a, t_stack **stack_b, int len)
+// {
+//     int pivot;
+//     int len_a;
+//     int len_b;
+
+//     if (len <= 3)
+//     {
+//         if (!is_sorted(stack_a))
+//             sort_3_a(stack_a);
+//         return;
+//     }
+//     pivot = (*stack_a)->value;
+//     partition_stack(stack_a, stack_b, pivot);
+//     len_a = stack_len(stack_a);
+//     len_b = stack_len(stack_b);
+//     quick_sort(stack_a, stack_b, len_a);
+//     while (len_b > 0)
+//     {
+//         pa(stack_a, stack_b);
+//         len_b--;
+//     }
+// }
+void get_pivot(t_stack **stack, int *pivot)
 {
-    if (*stack_a)
+    int count;
+    int len;
+    t_stack *current;
+    t_stack *current2;
+
+    current = *stack;
+    len = stack_len(stack);
+    while (current != NULL)
     {
-        if ((*stack_a)->value < pivot)
-            pb(stack_b, stack_a);
-        else
-            ra(stack_a);
+        count = 0;
+        current2 = *stack;
+        while (current2 != NULL)
+        {
+            if (current->value > current2->value)
+                count++;
+            current2 = current2->next;
+        }
+        if (count == (len / 3))
+            pivot[0] = current->value;
+        else if (count == (len / 3 * 2))
+            pivot[1] = current->value;
+        current = current->next;
     }
 }
 
-void quick_sort(t_stack **stack_a, t_stack **stack_b, int len)
+void partition_stack(t_stack **stack_a, t_stack **stack_b)
 {
-    int pivot;
+    int pivot[2];
     int len_a;
+    int i;
+
+    get_pivot(stack_a, pivot);
+    len_a = stack_len(stack_a);
+    i = 0;
+    while (i < len_a)
+    {
+        if ((*stack_a)->value <= pivot[0])
+        {
+            pb(stack_a, stack_b);
+            rb(stack_b);
+        }
+        else if (pivot[0] < (*stack_a)->value && (*stack_a)->value < pivot[1])
+            pb(stack_a, stack_b);
+        else
+            ra(stack_a);
+        i++;
+    }
+    len_a = stack_len(stack_a);
+    while (len_a-- > 5)
+        pb(stack_a, stack_b);
+}
+
+int count_step_a(t_stack **stack_a, int value)
+{
+    int step_a;
+    int *current;
+    int len_a;
+
+    current = (*stack_a);
+    step_a = 0;
+    len_a = stack_len(stack_a);
+    while (current != NULL && (*stack_a)->next->value < value)
+    {
+        step_a++;
+        current = current->next;
+    }
+    if (step_a > (len_a / 2))
+            step_a = (len_a - step_a) * -1;
+    return (step_a);
+}
+
+int ft_abs(int num)
+{
+    if (num < 0)
+        return (-num);
+    return (num);
+}
+
+int count_stap(t_stack **stack_a, t_stack *stack_b)
+{
+    int count_a;
+    int count_b;
+    int tmp_count_a;
+    int tmp_count_b;
+    t_stack *current_b;
     int len_b;
 
-    if (len <= 3)
+    current_b = (*stack_b);
+    len_b = len_stack(stack_b);
+    tmp_count_b = 0;
+    while (current_b != NULL)
     {
-        if (!is_sorted(stack_a))
-            sort_3_a(stack_a);
-        return;
+        tmp_count_b++;
+        if (tmp_count_b > (len_b / 2))
+            tmp_count_b = (len_b - tmp_count_b) * -1;
+        tmp_count_a = count_step_a(stack_a, current_b->value);
+        if (ft_abs(tmp_count_a)+ft_abs(tmp_count_b) < (ft_abs(count_a)+ft_abs(count_b)))
+        {
+            count_a = tmp_count_a;
+            count_b = tmp_count_b;
+        }
+        current_b = current_b->next;
     }
-    pivot = (*stack_a)->value;
-    partition_stack(stack_a, stack_b, pivot);
-    len_a = stack_len(stack_a);
-    len_b = stack_len(stack_b);
-    quick_sort(stack_a, stack_b, len_a);
-    while (len_b > 0)
+}
+
+void sort6_to(t_stack **stack_a, t_stack **stack_b)
+{
+    //int len_a;
+
+    partition_stack(stack_a, stack_b);
+    //len_a = stack_len(stack_a);
+    push_swap(stack_a, stack_b);
+    while ((*stack_b) != NULL)
     {
-        pa(stack_a, stack_b);
-        len_b--;
+        
     }
 }
 
@@ -224,29 +332,5 @@ void push_swap(t_stack **stack_a, t_stack **stack_b)
     else if (len_a == 5)
         sort_5(stack_a, stack_b);
     else
-        quick_sort(stack_a, stack_b, len_a);
+        sort6_to(stack_a, stack_b);
 }
-
-// void pibot(t_stack **stack)
-// {
-//     int i;
-//     int j;
-//     int len_a;
-//     int count;
-
-//     i = 0;
-//     j = 0;
-//     len_a = stack_len(stack);
-//     count = 0;
-
-//     while (i < len_a)
-//     {
-//         while (j < )
-//         {
-//             if ()
-//                 count++;
-//             j++;
-//         }
-//         i++;
-//     }
-// }

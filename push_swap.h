@@ -60,8 +60,8 @@ void sort_4_a(t_stack **stack_a, t_stack **stack_b);
 void sort_5(t_stack **stack_a, t_stack **stack_b);
 int serch_min(t_stack **stack);
 //void set_min_max(t_stack **stack_a, int max, int min);
-void partition_stack(t_stack **stack_a, t_stack **stack_b, int pivot);
-void quick_sort(t_stack **stack_a, t_stack **stack_b, int len);
+void partition_stack(t_stack **stack_a, t_stack **stack_b);
+//void quick_sort(t_stack **stack_a, t_stack **stack_b, int len);
 void push_swap(t_stack **stack_a, t_stack **stack_b);
 
 void put_stack(t_stack *stack_a, t_stack *stack_b);
