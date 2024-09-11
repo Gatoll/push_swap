@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 16:05:35 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/11 16:07:01 by kaokazak         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 static int	add_stack(t_stack **stack_a, int num)
@@ -35,6 +23,46 @@ static int	add_stack(t_stack **stack_a, int num)
 		current->next = new_node;
 		new_node->prev = current;
 	}
+	return (TRUE);
+}
+
+static int	is_intover(int sign, long res, long num)
+{
+	if (res > (long)INT_MAX / 10)
+		return (TRUE);
+	if (res == (long)INT_MAX / 10)
+	{
+		if (sign == 1 && num > (long)INT_MAX % 10)
+			return (TRUE);
+		if (sign == -1 && num > ((long)INT_MIN % 10) * -1)
+			return (TRUE);
+	}
+	return (FALSE);
+}
+
+static int	check_atoi(char *str, long *res)
+{
+	int	sign;
+
+	sign = 1;
+	*res = 0;
+	if (!str || *str == '\0' || (*str != '+' && *str != '-'
+			&& !ft_isdigit(*str)))
+		return (FALSE);
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str != '\0')
+	{
+		if (!ft_isdigit(*str) || is_intover(sign, *res, (*str - '0')))
+			return (FALSE);
+		*res = *res * 10 + (*str - '0');
+		str++;
+	}
+	*res *= sign;
 	return (TRUE);
 }
 

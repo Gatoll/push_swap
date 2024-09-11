@@ -6,55 +6,13 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:35 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/11 16:08:06 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 01:58:29 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stack_len(t_stack **stack)
-{
-	int		len;
-	t_stack	*current;
-
-	len = 0;
-	if (!stack)
-		return (0);
-	current = *stack;
-	while (current != NULL)
-	{
-		current = current->next;
-		len++;
-	}
-	return (len);
-}
-
-int	serch_min(t_stack **stack, int *len_to_min)
-{
-	int		min;
-	t_stack	*current;
-
-	min = (*stack)->value;
-	current = (*stack)->next;
-	len_to_min = 0;
-	while (current != NULL)
-	{
-		if (min > current->value)
-			min = current->value;
-		current = current->next;
-		len_to_min++;
-	}
-	return (min);
-}
-
-int	ft_abs(int num)
-{
-	if (num < 0)
-		return (-num);
-	return (num);
-}
-
-void	get_pivot(t_stack **stack, int *pivot)
+static void	get_pivot(t_stack **stack, int *pivot)
 {
 	int		count;
 	int		len;

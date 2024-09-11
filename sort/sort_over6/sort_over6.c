@@ -6,13 +6,13 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:11 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/11 16:07:46 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 02:03:57 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	end_rotate(t_stack **stack_a)
+static void	end_rotate(t_stack **stack_a)
 {
 	int	len_to_min;
 	int	len_a;
@@ -29,6 +29,46 @@ void	end_rotate(t_stack **stack_a)
 	{
 		while ((*stack_a)->value != min)
 			rra(stack_a);
+	}
+}
+
+static void	do_rotate_b(t_stack **stack_b, int step_b)
+{
+	if (step_b > 0)
+	{
+		while (step_b > 0)
+		{
+			rb(stack_b);
+			step_b--;
+		}
+	}
+	else
+	{
+		while (step_b < 0)
+		{
+			rrb(stack_b);
+			step_b++;
+		}
+	}
+}
+
+static void	do_rotate_a(t_stack **stack_a, int step_a)
+{
+	if (step_a > 0)
+	{
+		while (step_a > 0)
+		{
+			ra(stack_a);
+			step_a--;
+		}
+	}
+	else
+	{
+		while (step_a < 0)
+		{
+			rra(stack_a);
+			step_a++;
+		}
 	}
 }
 

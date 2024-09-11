@@ -6,7 +6,7 @@
 #    By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/11 16:06:24 by kaokazak          #+#    #+#              #
-#    Updated: 2024/09/11 16:06:25 by kaokazak         ###   ########.fr        #
+#    Updated: 2024/09/12 02:17:49 by kaokazak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,22 +18,24 @@ RM = rm -f
 
 DIR_LIBFT = libft
 
-SRCS = operate/push.c \
+SRCS = init_stack/arg_to_stack.c \
+	   init_stack/free.c \
+	   init_stack/ft_split_multi.c \
+	   init_stack/init_stack.c \
+	   operate/push.c \
 	   operate/reverse_rotate.c \
 	   operate/rotate.c \
 	   operate/swap.c \
+	   sort/sort_over6/get_min_step.c \
+	   sort/sort_over6/separate_stack.c \
+	   sort/sort_over6/sort_over6.c \
+	   sort/push_swap.c \
 	   sort/sort_3.c \
 	   sort/sort_4.c \
 	   sort/sort_5.c \
-	   sort/sort_over6.c \
-	   create_stack/create_stack.c \
-	   create_stack/free.c \
-	   create_stack/ft_split_multi.c \
 	   main.c \
-	   sort/push_swap.c \
 	   utils.c \
-	   utils2.c \
-	   utils3.c
+	   test.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,28 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:18 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/11 16:07:49 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 01:36:38 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	init_stack(int argc, char *argv[], t_stack **stack_a)
-{
-	if (arg_to_stack(argc, argv, stack_a) == FALSE)
-		return (FALSE);
-	if (is_unique_node(stack_a) == FALSE)
-	{
-		free_stack(stack_a);
-		return (FALSE);
-	}
-	if (is_sorted(stack_a) == TRUE)
-	{
-		free_stack(stack_a);
-		return (FALSE);
-	}
-	return (TRUE);
-}
 
 // __attribute__((destructor))
 // static void destructor() {
@@ -45,9 +28,9 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (init_stack(argc, argv, &stack_a) == FALSE)
 		return (1);
-	// put_stack(stack_a, stack_b);
+	put_stack(stack_a, stack_b);
 	push_swap(&stack_a, &stack_b);
-	// put_stack(stack_a, stack_b);
+	put_stack(stack_a, stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
