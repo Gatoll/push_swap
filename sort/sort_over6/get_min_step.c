@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils3.c                                           :+:      :+:    :+:   */
+/*   get_min_step.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:38 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 02:02:13 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 03:27:06 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ static int	ft_abs(int num)
 	if (num < 0)
 		return (-num);
 	return (num);
+}
+
+static int ft_union(int num1, int num2)
+{
+	return (ft_abs(num1) + ft_abs(num2));
 }
 
 static int	count_step_b(t_stack **stack_b, int tmp_step_b)
@@ -68,8 +73,7 @@ void	get_min_step(t_stack **stack_a, t_stack **stack_b, int *step_a,
 			*step_b = tmp_step_b;
 			return ;
 		}
-		if (ft_abs(tmp_step_a) + ft_abs(tmp_step_b) < ft_abs(*step_a)
-			+ ft_abs(*step_b))
+		if (ft_union(tmp_step_a, tmp_step_b) < ft_union(*step_a, *step_b))
 		{
 			*step_a = tmp_step_a;
 			*step_b = tmp_step_b;
