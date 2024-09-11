@@ -13,13 +13,15 @@ SRCS = operate/push.c \
 	   sort/sort_3.c \
 	   sort/sort_4.c \
 	   sort/sort_5.c \
-	   create_stack.c \
-	   free.c \
-	   ft_split_multi.c \
+	   sort/sort_over6.c \
+	   create_stack/create_stack.c \
+	   create_stack/free.c \
+	   create_stack/ft_split_multi.c \
 	   main.c \
-	   push_swap.c \
+	   sort/push_swap.c \
 	   utils.c \
-	   utils2.c
+	   utils2.c \
+	   utils3.c
 
 OBJS = $(SRCS:.c=.o)
 

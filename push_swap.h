@@ -65,7 +65,7 @@ int count_step_b(t_stack **stack_b, int tmp_step_b);
 void get_min_step(t_stack **stack_a, t_stack **stack_b, int *step_a, int *step_b);
 void do_rotate_a(t_stack **stack_a, int step_a);
 void do_rotate_b(t_stack **stack_b, int step_b);
-void sort6_to(t_stack **stack_a, t_stack **stack_b);
+void sort_over6(t_stack **stack_a, t_stack **stack_b);
 void push_swap(t_stack **stack_a, t_stack **stack_b);
 
 // utils
