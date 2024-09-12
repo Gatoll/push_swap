@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:38 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 06:22:11 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 18:22:12 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,51 @@ static int ft_union(int num1, int num2)
 // 	return (tmp_step_b);
 // }
 
+static int count_upper_value(t_stack **stack_a, int b_value)
+{
+	t_stack	*current;
+	int step;
+	
+	current = *stack_a;
+	step = 0;
+	while (current->next != NULL && current->value < b_value && current->value < current->next->value)
+	{
+		step++;
+		current = current->next;
+	}
+	if (current->value < b_value)
+	{
+		step++;
+		current = current->next;
+	}
+	return (step);
+}
+
+static int count_lower_value(t_stack **stack_a, int b_value)
+{
+	t_stack	*current;
+	int step;
+	
+	current = *stack_a;
+	step = 0;
+	
+	while (current->next != NULL && b_value < current->value && current->value < current->next->value)
+	{
+		step++;
+		current = current->next;
+	}
+	step++;
+	current = current->next;
+	if (current == NULL)
+		step = 0;
+	while (current != NULL && current->value < b_value)
+	{
+		step++;
+		current = current->next;
+	}
+	return (step);
+}
+
 static int	count_step_a(t_stack **stack_a, int b_value)
 {
 	int		len_a;
@@ -44,35 +89,9 @@ static int	count_step_a(t_stack **stack_a, int b_value)
 	current = *stack_a;
 
 	if (current->value < b_value)
-	{
-		while (current->next != NULL && current->value < b_value && current->value < current->next->value)
-		{
-			step++;
-			current = current->next;
-		}
-		if (current->value < b_value)
-		{
-			step++;
-			current = current->next;
-		}
-	}
+		step = count_upper_value(stack_a, b_value);
 	else
-	{
-		while (current->next != NULL && b_value < current->value && current->value < current->next->value)
-		{
-			step++;
-			current = current->next;
-		}
-		step++;
-		current = current->next;
-		if (current == NULL)
-			step = 0;
-		while (current != NULL && current->value < b_value)
-		{
-			step++;
-			current = current->next;
-		}
-	}
+		step = count_lower_value(stack_a, b_value);
 	len_a = stack_len(stack_a);
 	if (step > (len_a / 2))
 		step = (len_a - step) * -1;
