@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:38 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 18:22:12 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/12 18:25:41 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,6 @@ static int ft_union(int num1, int num2)
 {
 	return (ft_abs(num1) + ft_abs(num2));
 }
-
-// static int	count_step_b(t_stack **stack_b, int tmp_step_b)
-// {
-// 	int	len_b;
-
-// 	len_b = stack_len(stack_b);
-// 	if (tmp_step_b > (len_b / 2))
-// 		tmp_step_b = (len_b - tmp_step_b) * -1;
-// 	return (tmp_step_b);
-// }
 
 static int count_upper_value(t_stack **stack_a, int b_value)
 {
