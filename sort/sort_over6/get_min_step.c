@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:38 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 18:25:41 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/13 03:31:19 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,21 +92,19 @@ void	get_min_step(t_stack **stack_a, t_stack **stack_b, int *step_a,
         int *step_b)
 {
 	int		tmp_step_a;
-	//int		tmp_step_b;
 	int		count;
 	t_stack	*current;
 
 	current = *stack_b;
 	count = 0;
 	*step_a = count_step_a(stack_a, current->value);
-	*step_b = count;//count_step_b(stack_b, current->value);
+	*step_b = count;
 	//printf("value = %d : first_step_a = %d, first_step_b = %d\n", current->value, *step_a, *step_b);
 	current = current->next;
 	count++;
 	while (current != NULL)
 	{
 		tmp_step_a = count_step_a(stack_a, current->value);
-		//tmp_step_b = count_step_b(stack_b, count);
 		//printf("tmp_step_a = %d, tmp_step_b = %d\n", tmp_step_a, count);
 		if (ft_union(tmp_step_a, count) < ft_union(*step_a, *step_b))
 		{
