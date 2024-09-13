@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:11 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 06:40:34 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/13 22:35:25 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	end_rotate(t_stack **stack_a, int len_a)
 	int	min;
 
 	min = serch_min(stack_a, &len_to_min);
+	//printf("end_rotate:len_to_min = %d\n", len_to_min);
 	if (len_to_min < (len_a / 2))
 	{
 		while ((*stack_a)->value != min)
@@ -60,24 +61,26 @@ static void	do_rotate_a(t_stack **stack_a, int step_a)
 
 static void do_rotate(t_stack **stack_a, t_stack **stack_b, int step_a, int step_b)
 {
-	if (step_a == step_b)
+	if (step_a > 0 && step_b > 0)
 	{
-		if (step_a >= 0)
+		while (step_a > 0 && step_b > 0)
 		{
-			while (step_a-- > 0)
-				rr(stack_a, stack_b);
-		}
-		else
-		{
-			while (step_a++ < 0)
-				rrr(stack_a, stack_b);
+			rr(stack_a, stack_b);
+			step_a--;
+			step_b--;
 		}
 	}
-	else
+	else if (step_a < 0 && step_b < 0)
 	{
-		do_rotate_a(stack_a, step_a);
-		do_rotate_b(stack_b, step_b);
+		while (step_a > 0 && step_b > 0)
+		{
+			rrr(stack_a, stack_b);
+			step_a++;
+			step_b++;
+		}
 	}
+	do_rotate_a(stack_a, step_a);
+	do_rotate_b(stack_b, step_b);
 }
 
 void	sort_over6(t_stack **stack_a, t_stack **stack_b, int len_a)
@@ -89,14 +92,14 @@ void	sort_over6(t_stack **stack_a, t_stack **stack_b, int len_a)
 	//put_stack(*stack_a, *stack_b);
 	push_swap(stack_a, stack_b);
 	//put_stack(*stack_a, *stack_b);
-	//printf("--- sorted a ---\n");
 	while ((*stack_b) != NULL)
 	{
 		get_min_step(stack_a, stack_b, &step_a, &step_b);
-		//printf("step_a = %d, step_b = %d\n", step_a, step_b);
+		//printf("get_min_step:step_a = %d, step_b = %d\n", step_a, step_b);
 		do_rotate(stack_a, stack_b, step_a, step_b);
 		pa(stack_a, stack_b);
 		//put_stack(*stack_a, *stack_b);
 	}
+	//put_stack(*stack_a, *stack_b);
 	end_rotate(stack_a, len_a);
 }

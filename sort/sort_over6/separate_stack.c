@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:35 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 06:27:56 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/13 21:36:16 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	get_pivot(t_stack **stack_a, int len_a, int *pivot)
 		}
 		if (count == (len_a / 3 - 1))
 			pivot[0] = current->value;
-		else if (count == ((len_a / 3) * 2) - 1)
+		else if (count == ((len_a / 3) * 2 + 1))
 			pivot[1] = current->value;
 		current = current->next;
 	}
@@ -56,6 +56,6 @@ void	separate_stack(t_stack **stack_a, t_stack **stack_b, int len_a)
 			ra(stack_a);
 	}
 	len_a = stack_len(stack_a);
-	while (len_a-- > 6)
+	while (len_a-- > 3)
 		pb(stack_a, stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:38 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/13 03:31:19 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/13 22:37:18 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,36 @@ static int count_lower_value(t_stack **stack_a, int b_value)
 static int	count_step_a(t_stack **stack_a, int b_value)
 {
 	int		len_a;
-	int		step;
+	int		step_a;
 	t_stack	*current;
 
-	step = 0;
+	step_a = 0;
 	current = *stack_a;
 
 	if (current->value < b_value)
-		step = count_upper_value(stack_a, b_value);
+		step_a = count_upper_value(stack_a, b_value);
 	else
-		step = count_lower_value(stack_a, b_value);
+		step_a = count_lower_value(stack_a, b_value);
 	len_a = stack_len(stack_a);
-	if (step > (len_a / 2))
-		step = (len_a - step) * -1;
-	return (step);
+	if (step_a > (len_a / 2))
+		step_a = (len_a - step_a) * -1;
+	return (step_a);
 }
 
-void	get_min_step(t_stack **stack_a, t_stack **stack_b, int *step_a,
-        int *step_b)
+static int	count_step_b(t_stack **stack_b, int step_b)
+{
+	int		len_b;
+	
+	len_b = stack_len(stack_b);
+	if (step_b > (len_b / 2))
+		step_b = (len_b - step_b) * -1;
+	return (step_b);
+}
+
+void	get_min_step(t_stack **stack_a, t_stack **stack_b, int *step_a, int *step_b)
 {
 	int		tmp_step_a;
+	int 	tmp_step_b;
 	int		count;
 	t_stack	*current;
 
@@ -105,11 +115,12 @@ void	get_min_step(t_stack **stack_a, t_stack **stack_b, int *step_a,
 	while (current != NULL)
 	{
 		tmp_step_a = count_step_a(stack_a, current->value);
-		//printf("tmp_step_a = %d, tmp_step_b = %d\n", tmp_step_a, count);
-		if (ft_union(tmp_step_a, count) < ft_union(*step_a, *step_b))
+		tmp_step_b = count_step_b(stack_b, count);
+		//printf("tmp_step_a = %d, tmp_step_b = %d\n", tmp_step_a, tmp_step_b);
+		if (ft_union(tmp_step_a, tmp_step_b) < ft_union(*step_a, *step_b))
 		{
 			*step_a = tmp_step_a;
-			*step_b = count;
+			*step_b = tmp_step_b;
 		}
 		count++;
 		current = current->next;
