@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:28 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/14 03:16:20 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/14 03:20:17 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,14 @@ int	init_stack(int argc, char *argv[], t_stack **stack_a);
 // push
 void				pa(t_stack **stack_a, t_stack **stack_b);
 void				pb(t_stack **stack_a, t_stack **stack_b);
-
 // swap
 void				sa(t_stack **stack_a);
 void				sb(t_stack **stack_b);
 void				ss(t_stack **stack_a, t_stack **stack_b);
-
 // rotate
 void				ra(t_stack **stack_a);
 void				rb(t_stack **stack_b);
 void				rr(t_stack **stack_a, t_stack **stack_b);
-
 // reverse_rotate
 void				rra(t_stack **stack_a);
 void				rrb(t_stack **stack_b);
