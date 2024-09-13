@@ -6,7 +6,7 @@
 #    By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/11 16:06:24 by kaokazak          #+#    #+#              #
-#    Updated: 2024/09/12 02:17:49 by kaokazak         ###   ########.fr        #
+#    Updated: 2024/09/14 03:15:08 by kaokazak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS = init_stack/arg_to_stack.c \
 	   operate/reverse_rotate.c \
 	   operate/rotate.c \
 	   operate/swap.c \
+	   sort/sort_over6/count_step_a.c \
 	   sort/sort_over6/get_min_step.c \
 	   sort/sort_over6/separate_stack.c \
 	   sort/sort_over6/sort_over6.c \

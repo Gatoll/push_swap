@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:28 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/12 03:02:52 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/14 03:16:20 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void				rrr(t_stack **stack_a, t_stack **stack_b);
 
 // sort/
 // sort_over6/
+// count_step_a
+int	count_step_a(t_stack **stack_a, int b_value);
 // get_min_step
 void	get_min_step(t_stack **stack_a, t_stack **stack_b, int *step_a, int *step_b);
 // separate_stack

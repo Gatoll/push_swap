@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:11 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/13 22:35:25 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/14 03:17:49 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static void	end_rotate(t_stack **stack_a, int len_a)
 	int	min;
 
 	min = serch_min(stack_a, &len_to_min);
-	//printf("end_rotate:len_to_min = %d\n", len_to_min);
 	if (len_to_min < (len_a / 2))
 	{
 		while ((*stack_a)->value != min)

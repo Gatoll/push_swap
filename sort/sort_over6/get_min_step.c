@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:38 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/13 22:37:18 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/14 03:12:52 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,70 +22,6 @@ static int	ft_abs(int num)
 static int ft_union(int num1, int num2)
 {
 	return (ft_abs(num1) + ft_abs(num2));
-}
-
-static int count_upper_value(t_stack **stack_a, int b_value)
-{
-	t_stack	*current;
-	int step;
-	
-	current = *stack_a;
-	step = 0;
-	while (current->next != NULL && current->value < b_value && current->value < current->next->value)
-	{
-		step++;
-		current = current->next;
-	}
-	if (current->value < b_value)
-	{
-		step++;
-		current = current->next;
-	}
-	return (step);
-}
-
-static int count_lower_value(t_stack **stack_a, int b_value)
-{
-	t_stack	*current;
-	int step;
-	
-	current = *stack_a;
-	step = 0;
-	
-	while (current->next != NULL && b_value < current->value && current->value < current->next->value)
-	{
-		step++;
-		current = current->next;
-	}
-	step++;
-	current = current->next;
-	if (current == NULL)
-		step = 0;
-	while (current != NULL && current->value < b_value)
-	{
-		step++;
-		current = current->next;
-	}
-	return (step);
-}
-
-static int	count_step_a(t_stack **stack_a, int b_value)
-{
-	int		len_a;
-	int		step_a;
-	t_stack	*current;
-
-	step_a = 0;
-	current = *stack_a;
-
-	if (current->value < b_value)
-		step_a = count_upper_value(stack_a, b_value);
-	else
-		step_a = count_lower_value(stack_a, b_value);
-	len_a = stack_len(stack_a);
-	if (step_a > (len_a / 2))
-		step_a = (len_a - step_a) * -1;
-	return (step_a);
 }
 
 static int	count_step_b(t_stack **stack_b, int step_b)
