@@ -64,6 +64,11 @@ static void judge(t_stack **stack_a, t_stack **stack_b)
         write(1, "KO\n", 3);
 }
 
+// __attribute__((destructor))
+// static void destructor() {
+//     system("leaks -q a.out");
+// }
+
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
