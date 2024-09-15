@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:05:43 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 07:05:36 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 08:02:27 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	ft_issep_multi(char s, char *c)
 {
 	while (*c != '\0')
 	{
-		if (s == *c)
+		if (*c == s)
 			return (1);
 		c++;
 	}
