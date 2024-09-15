@@ -93,15 +93,15 @@ int	arg_to_stack(int argc, char *argv[], t_stack **stack_a)
 	while (i < argc)
 	{
 		tmp = ft_split_multi(argv[i], " ,");
-		if (!tmp)
+		if (!tmp || *tmp == NULL)
 		{
 			put_error();
+			free_tmp(tmp);
 			return (FALSE);
 		}
 		if (tmp_to_stack(stack_a, tmp) == FALSE)
 		{
 			free_tmp(tmp);
-			free_stack(stack_a);
 			return (FALSE);
 		}
 		free_tmp(tmp);
