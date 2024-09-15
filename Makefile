@@ -6,7 +6,7 @@
 #    By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/11 16:06:24 by kaokazak          #+#    #+#              #
-#    Updated: 2024/09/16 07:10:20 by kaokazak         ###   ########.fr        #
+#    Updated: 2024/09/16 08:06:41 by kaokazak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ AR = ar rcs
 RM = rm -f
 
 DIR_LIBFT = libft
+CHECKER = checker
 
 SRCS = mandatory/init_stack/arg_to_stack.c \
 		mandatory/init_stack/free.c \
@@ -45,7 +46,6 @@ BONUS = bonus/init_stack/arg_to_stack.c \
 		bonus/operate/reverse_rotate.c \
 		bonus/operate/rotate.c \
 		bonus/operate/swap.c \
-		bonus/checker.c \
 		bonus/sort/sort_over6/count_step_a.c \
 		bonus/sort/sort_over6/get_min_step.c \
 		bonus/sort/sort_over6/separate_stack.c \
@@ -69,7 +69,7 @@ $(NAME): $(DIR_LIBFT)/libft.a $(OBJS)
 	$(CC) $(OBJS) -L./$(DIR_LIBFT)/ -lft -o $(NAME)
 	
 bonus: $(DIR_LIBFT)/libft.a $(BONUS_OBJS)
-	$(CC) $(OBJS) -L./$(DIR_LIBFT)/ -lft -o checker
+	$(CC) $(BONUS_OBJS) -L./$(DIR_LIBFT)/ -lft -o $(CHECKER)
 	
 .c.o:
 	$(CC) $(CFLAGS) -I./ -c $< -o $@
@@ -79,7 +79,7 @@ clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	$(RM) $(NAME) checker
+	$(RM) $(NAME) $(CHECKER)
 
 re: fclean all
 
