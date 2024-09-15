@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "push_swap.h"
+#include "./mandatory/push_swap.h"
 
 void put_stack(t_stack *stack_a, t_stack *stack_b)
 {
