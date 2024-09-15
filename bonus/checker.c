@@ -1,12 +1,5 @@
 #include "push_swap_bonus.h"
 
-static int is_empty(t_stack **stack)
-{
-    if (*stack == NULL)
-        return (TRUE);
-    return (FALSE);
-}
-
 static int ft_strcmp(const char *s1, const char *s2)
 {
     size_t	i;

@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:28 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 06:46:09 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 08:35:12 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void				put_error(void);
 int					is_sorted(t_stack **stack);
 int					stack_len(t_stack **stack);
 int	serch_min(t_stack **stack, int *len_to_min);
+int is_empty(t_stack **stack);
 
 #endif

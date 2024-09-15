@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:32 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 07:00:32 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 08:35:02 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,11 @@ int	serch_min(t_stack **stack, int *len_to_min)
 		count++;
 	}
 	return (min);
+}
+
+int is_empty(t_stack **stack)
+{
+    if (*stack == NULL)
+        return (TRUE);
+    return (FALSE);
 }
