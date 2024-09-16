@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:11 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 11:38:04 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:15:13 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../include/push_swap.h"
 
 static void	end_rotate(t_stack **stack_a, int len_a)
 {

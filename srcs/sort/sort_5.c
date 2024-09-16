@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:09 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 07:03:54 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:15:38 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../include/push_swap.h"
 
 static int	serch_med_5(t_stack **stack)
 {

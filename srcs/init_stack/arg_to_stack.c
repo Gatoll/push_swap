@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 11:34:26 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 11:50:54 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:14:18 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../include/push_swap.h"
 
 static int	add_stack(t_stack **stack_a, int num)
 {

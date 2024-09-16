@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:32 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 13:46:44 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:16:00 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	put_error(void)
 {

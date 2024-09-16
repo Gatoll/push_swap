@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:20:24 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 07:03:14 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:14:31 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../include/push_swap.h"
 
 static void	push(t_stack **dest, t_stack **src)
 {

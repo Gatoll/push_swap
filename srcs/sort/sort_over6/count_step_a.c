@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 11:34:43 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 11:37:56 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:15:01 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../include/push_swap.h"
 
 static int	count_upper_value(t_stack **stack_a, int b_value)
 {

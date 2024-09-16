@@ -6,15 +6,15 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:28 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 12:29:30 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:12:51 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./libft/include/libft.h"
-# include "./libft/include/get_next_line_bonus.h"
+# include "../libft/include/libft.h"
+# include "../libft/include/get_next_line_bonus.h"
 
 typedef struct s_stack
 {

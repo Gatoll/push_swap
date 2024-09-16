@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 16:05:40 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 08:14:18 by kaokazak         ###   ########.fr       */
+/*   Created: 2024/09/11 16:06:00 by kaokazak          #+#    #+#             */
+/*   Updated: 2024/09/16 23:15:21 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../include/push_swap.h"
 
-void	free_stack(t_stack **stack)
+void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*tmp;
+	int	len_a;
 
-	if (!stack)
-		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
-	*stack = NULL;
-}
-
-void	free_tmp(char **tmp)
-{
-	char	**start;
-
-	if (!tmp)
-		return ;
-	start = tmp;
-	while (*tmp != NULL)
-	{
-		free(*tmp);
-		tmp++;
-	}
-	free(start);
+	len_a = stack_len(stack_a);
+	if (len_a == 2)
+		sa(stack_a);
+	else if (len_a == 3)
+		sort_3_a(stack_a);
+	else if (len_a == 4)
+		sort_4_a(stack_a, stack_b, len_a);
+	else if (len_a == 5)
+		sort_5(stack_a, stack_b, len_a);
+	else
+		sort_over6(stack_a, stack_b, len_a);
 }

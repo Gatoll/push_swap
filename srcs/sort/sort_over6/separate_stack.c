@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:35 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 07:03:40 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:15:10 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../include/push_swap.h"
 
 static void	get_pivot(t_stack **stack_a, int len_a, int *pivot)
 {

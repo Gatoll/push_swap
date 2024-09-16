@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 11:34:14 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 13:03:19 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:14:02 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../include/push_swap.h"
 
 static int	ft_strcmp(const char *s1, const char *s2)
 {

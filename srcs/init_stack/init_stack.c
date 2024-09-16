@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:05:35 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 12:27:22 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:14:25 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../include/push_swap.h"
 
 static int	is_unique_node(t_stack **stack_a)
 {

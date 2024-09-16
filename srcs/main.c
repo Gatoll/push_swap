@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:18 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 14:12:02 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:15:53 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 // __attribute__((destructor))
 // static void destructor() { 

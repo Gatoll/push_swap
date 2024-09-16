@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:20:30 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 07:03:20 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 23:13:49 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../../include/push_swap.h"
 
 static void	rotate(t_stack **stack)
 {
@@ -35,18 +35,15 @@ static void	rotate(t_stack **stack)
 void	ra(t_stack **stack_a)
 {
 	rotate(stack_a);
-	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **stack_b)
 {
 	rotate(stack_b);
-	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	write(1, "rr\n", 3);
 }

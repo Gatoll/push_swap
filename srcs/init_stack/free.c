@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 14:20:24 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 12:30:46 by kaokazak         ###   ########.fr       */
+/*   Created: 2024/09/11 16:05:40 by kaokazak          #+#    #+#             */
+/*   Updated: 2024/09/16 23:14:22 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../include/push_swap.h"
 
-static void	push(t_stack **dest, t_stack **src)
+void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if ((*src) == NULL)
+	if (!stack)
 		return ;
-	tmp = *src;
-	(*src) = (*src)->next;
-	if (*src != NULL)
-		(*src)->prev = NULL;
-	if (*dest != NULL)
+	while (*stack)
 	{
-		tmp->next = (*dest);
-		(*dest)->prev = tmp;
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
-	else
-		tmp->next = NULL;
-	(*dest) = tmp;
+	*stack = NULL;
 }
 
-void	pa(t_stack **stack_a, t_stack **stack_b)
+void	free_tmp(char **tmp)
 {
-	push(stack_a, stack_b);
-}
+	char	**start;
 
-void	pb(t_stack **stack_a, t_stack **stack_b)
-{
-	push(stack_b, stack_a);
+	if (!tmp)
+		return ;
+	start = tmp;
+	while (*tmp != NULL)
+	{
+		free(*tmp);
+		tmp++;
+	}
+	free(start);
 }

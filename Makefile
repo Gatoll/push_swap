@@ -6,16 +6,17 @@
 #    By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/11 16:06:24 by kaokazak          #+#    #+#              #
-#    Updated: 2024/09/16 13:06:51 by kaokazak         ###   ########.fr        #
+#    Updated: 2024/09/16 23:55:13 by kaokazak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
 RM = rm -f
 
+DIR_INCLUDE = ./include
+DIR_SRCS = ./srcs
 DIR_LIBFT = libft
 NAME_CHECKER = checker
 
@@ -55,8 +56,8 @@ BONUS = init_stack/arg_to_stack.c \
 		bonus/operate/swap.c \
 		bonus/checker.c
 	   
-OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS:.c=.o)
+OBJS = $(addprefix $(DIR_SRCS)/,$(SRCS:.c=.o))
+BONUS_OBJS = $(addprefix $(DIR_SRCS)/,$(BONUS:.c=.o))
 
 all: $(NAME)
 
@@ -67,14 +68,15 @@ $(NAME): $(DIR_LIBFT)/libft.a $(OBJS)
 	$(CC) $(OBJS) -L./$(DIR_LIBFT)/ -lft -o $(NAME)
 	
 bonus: $(DIR_LIBFT)/libft.a $(BONUS_OBJS)
+	touch bonus
 	$(CC) $(BONUS_OBJS) -L./$(DIR_LIBFT)/ -lft -o $(NAME_CHECKER)
 	
 .c.o:
-	$(CC) $(CFLAGS) -I./ -c $< -o $@
+	$(CC) $(CFLAGS) -I $(DIR_INCLUDE) -c $< -o $@
 
 clean:
 	make fclean -C ./$(DIR_LIBFT)
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS) bonus
 
 fclean: clean
 	$(RM) $(NAME) $(NAME_CHECKER)
