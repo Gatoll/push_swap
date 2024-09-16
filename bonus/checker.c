@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 11:34:14 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 12:31:15 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 13:03:19 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,11 @@ static int	read_line(t_stack **stack_a, t_stack **stack_b)
 {
 	char	*line;
 
-	while ((line = get_next_line(STDIN_FILENO)) != NULL)
+	while (TRUE)
 	{
+		line = get_next_line(STDIN_FILENO);
+		if (line == NULL)
+			break ;
 		if (line_to_operate(line, stack_a, stack_b) == FALSE)
 		{
 			put_error();
@@ -75,17 +78,9 @@ int	is_empty(t_stack **stack)
 	return (FALSE);
 }
 
-static void	judge(t_stack **stack_a, t_stack **stack_b)
-{
-	if (is_sorted(stack_a) == TRUE && is_empty(stack_b) == TRUE)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
-}
-
 // __attribute__((destructor))
 // static void destructor() {
-//     system("leaks -q a.out");
+//     system("leaks -q checker");
 // }
 
 int	main(int argc, char *argv[])
@@ -105,7 +100,10 @@ int	main(int argc, char *argv[])
 		free_stack(&stack_b);
 		return (1);
 	}
-	judge(&stack_a, &stack_b);
+	if (is_sorted(&stack_a) == TRUE && is_empty(&stack_b) == TRUE)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
