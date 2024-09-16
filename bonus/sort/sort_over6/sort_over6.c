@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:11 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 07:06:06 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 11:37:01 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ static void	do_rotate_a(t_stack **stack_a, int step_a)
 	}
 }
 
-static void do_rotate(t_stack **stack_a, t_stack **stack_b, int step_a, int step_b)
+static void	do_rotate(t_stack **stack_a, t_stack **stack_b, int step_a,
+		int step_b)
 {
 	if (step_a > 0 && step_b > 0)
 	{
