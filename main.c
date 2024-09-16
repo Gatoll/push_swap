@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:18 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 07:04:26 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 12:36:02 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (init_stack(argc, argv, &stack_a) == FALSE)
 		return (1);
+	if (is_sorted(&stack_a) == TRUE)
+	{
+		free_stack(&stack_a);
+		return (FALSE);
+	}
 	push_swap(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);

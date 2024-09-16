@@ -6,11 +6,11 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 11:34:14 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 11:37:16 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 12:31:15 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "../push_swap.h"
 
 static int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -66,6 +66,13 @@ static int	read_line(t_stack **stack_a, t_stack **stack_b)
 		free(line);
 	}
 	return (TRUE);
+}
+
+int	is_empty(t_stack **stack)
+{
+	if (*stack == NULL)
+		return (TRUE);
+	return (FALSE);
 }
 
 static void	judge(t_stack **stack_a, t_stack **stack_b)

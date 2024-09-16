@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:05:35 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 08:13:00 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 12:27:22 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,6 @@ int	init_stack(int argc, char *argv[], t_stack **stack_a)
 		return (FALSE);
 	}
 	if (is_unique_node(stack_a) == FALSE)
-	{
-		free_stack(stack_a);
-		return (FALSE);
-	}
-	if (is_sorted(stack_a) == TRUE)
 	{
 		free_stack(stack_a);
 		return (FALSE);
