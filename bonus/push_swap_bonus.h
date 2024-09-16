@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:28 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 11:37:19 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 11:51:10 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_stack
 int					arg_to_stack(int argc, char *argv[], t_stack **stack_a);
 void				free_stack(t_stack **stack);
 void				free_tmp(char **tmp);
-char				**ft_split_multi(char const *s, char *c);
 int					init_stack(int argc, char *argv[], t_stack **stack_a);
 void				pa(t_stack **stack_a, t_stack **stack_b);
 void				pb(t_stack **stack_a, t_stack **stack_b);

@@ -6,7 +6,7 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 11:34:26 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 11:34:27 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 11:50:54 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	arg_to_stack(int argc, char *argv[], t_stack **stack_a)
 	i = 1;
 	while (i < argc)
 	{
-		tmp = ft_split_multi(argv[i], " ,");
+		tmp = ft_split(argv[i], ' ');
 		if (!tmp || *tmp == NULL)
 		{
 			put_error();
