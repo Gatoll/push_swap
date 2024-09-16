@@ -6,14 +6,14 @@
 /*   By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:06:18 by kaokazak          #+#    #+#             */
-/*   Updated: 2024/09/16 13:47:33 by kaokazak         ###   ########.fr       */
+/*   Updated: 2024/09/16 13:48:43 by kaokazak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // __attribute__((destructor))
-// static void destructor() {
+// static void destructor() { 
 //     system("leaks -q a.out");
 // }
 
